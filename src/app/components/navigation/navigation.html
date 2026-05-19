@@ -1,0 +1,11 @@
+<nav>
+  <menu class="flex flex-col lg:flex-row gap-5 lg:gap-15 items-center list-none">
+    @for (item of menuItems();  track item) {
+      <li>
+        <a href="#" class="text-xl leading-5 text-gray w-fit block hover:text-burgundy">
+          {{ item }}
+        </a>
+      </li>
+    }
+  </menu>
+</nav>
