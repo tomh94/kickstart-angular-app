@@ -6,9 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "model:generate": "npx tsx ./scripts/generateModel.ts"
   },
   "private": true,
+  "type": "module",
   "packageManager": "npm@11.14.1",
   "dependencies": {
     "@angular/common": "^21.2.13",
@@ -18,7 +20,7 @@
     "@angular/platform-browser": "^21.2.13",
     "@angular/router": "^21.2.13",
     "@tailwindcss/postcss": "^4.3.0",
-    "postcss": "^8.5.14",
+    "postcss": "^8.5.15",
     "rxjs": "~7.8.2",
     "tailwindcss": "^4.3.0",
     "tslib": "^2.8.1"
@@ -27,9 +29,11 @@
     "@angular/build": "^21.2.11",
     "@angular/cli": "^21.2.11",
     "@angular/compiler-cli": "^21.2.13",
+    "@kontent-ai/model-generator": "^10.0.1",
+    "@types/node": "^25.9.0",
     "jsdom": "^29.1.1",
     "prettier": "^3.8.3",
-    "typescript": "~6.0.3",
+    "typescript": "~5.9.3",
     "vitest": "^4.1.6"
   }
 }
