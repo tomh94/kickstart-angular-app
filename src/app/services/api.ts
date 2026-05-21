@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { from, map, type Observable } from 'rxjs';
-import type { ArticleType } from '../../model/types/article.generated';
-import type { EventType } from '../../model/types/event.generated';
-import type { LandingPageType } from '../../model/types/landing-page.generated';
+import type { ArticleType } from '../../model';
+import type { EventType } from '../../model';
+import type { LandingPageType } from '../../model';
 import { deliveryClient } from './delivery-client';
 
 @Injectable({ providedIn: 'root' })
@@ -25,23 +25,6 @@ export class Api {
       this.client
         .items<ArticleType>()
         .type('article')
-        .toPromise()
-    ).pipe(map((res) => res.data.items));
-  }
-
-  getArticle(codename: string): Observable<ArticleType | null> {
-    return from(
-      this.client
-        .item<ArticleType>(codename)
-        .toPromise()
-    ).pipe(map((res) => res.data.item ?? null));
-  }
-
-  getEvents(): Observable<EventType[]> {
-    return from(
-      this.client
-        .items<EventType>()
-        .type('event')
         .toPromise()
     ).pipe(map((res) => res.data.items));
   }
