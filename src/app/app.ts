@@ -1,17 +1,11 @@
-import { Component, inject} from '@angular/core';
-import {Layout} from './components/layout/layout';
-import {Api} from './services/api';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Layout } from './components/layout/layout';
 
 @Component({
   selector: 'app-root',
-  imports: [Layout],
+  imports: [Layout, RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-
-  api = inject(Api);
-
-  response$ = this.api.getItems()
-
-}
+export class App {}

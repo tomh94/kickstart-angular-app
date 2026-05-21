@@ -10,6 +10,9 @@ export class deliveryClient {
   private readonly client = createDeliveryClient<CoreClientTypes>({
     environmentId: environment.ENVIRONMENT_ID,
     previewApiKey: environment.DELIVERY_API_KEY,
+    defaultQueryConfig: {
+      usePreviewMode: true,
+    },
   });
 
   getClient(): IDeliveryClient<CoreClientTypes> {
