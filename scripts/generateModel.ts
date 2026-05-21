@@ -3,19 +3,19 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const { ENVIRONMENT_ID, MANAGEMENT_API_KEY} = process.env;
+const { VITE_ENVIRONMENT_ID, VITE_MANAGEMENT_API_KEY } = process.env;
 
-if (!ENVIRONMENT_ID) {
+if (!VITE_ENVIRONMENT_ID) {
   throw new Error("VITE_ENVIRONMENT_ID cannot be empty!");
 }
 
-if (!MANAGEMENT_API_KEY) {
-  throw new Error("VITE_MAPI_API_KEY cannot be empty!");
+if (!VITE_MANAGEMENT_API_KEY) {
+  throw new Error("VITE_MANAGEMENT_API_KEY cannot be empty!");
 }
 
 await generateDeliveryModelsAsync({
-  environmentId: ENVIRONMENT_ID,
-  managementApiKey: MANAGEMENT_API_KEY,
+  environmentId: VITE_ENVIRONMENT_ID,
+  managementApiKey: VITE_MANAGEMENT_API_KEY,
   addTimestamp: false,
   createFiles: true,
   outputDir: "./src/model",
