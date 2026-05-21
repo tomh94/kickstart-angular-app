@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import type { ArticleType } from '../../../model/types/article.generated';
+import type { ArticleType } from '../../../model';
 import { FeaturedComponentBase } from '../featured-component-base/featured-component-base';
 
 @Component({

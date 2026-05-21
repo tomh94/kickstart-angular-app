@@ -10,7 +10,9 @@ export class FeaturedComponentBase {
   readonly image = input<Elements.AssetsElement>();
 
   protected readonly img = computed(() => this.image()?.value[0] ?? null);
-  protected readonly badge = computed(() =>
-    this.type() === 'event' ? 'FEATURED EVENT' : 'FEATURED ARTICLE'
-  );
+  protected readonly badge = computed(() => {
+    const currentType = this.type();
+    if (!currentType) return '';
+    return currentType === 'event' ? 'FEATURED EVENT' : 'FEATURED ARTICLE';
+  });
 }
