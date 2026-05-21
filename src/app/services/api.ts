@@ -1,23 +1,48 @@
-import {inject, Injectable} from '@angular/core';
-import {deliveryClient} from './delivery-client';
-import {from, map} from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { from, map, type Observable } from 'rxjs';
+import type { ArticleType } from '../../model/types/article.generated';
+import type { EventType } from '../../model/types/event.generated';
+import type { LandingPageType } from '../../model/types/landing-page.generated';
+import { deliveryClient } from './delivery-client';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class Api {
-  private deliveryClient = inject(deliveryClient);
+  private readonly client = inject(deliveryClient).getClient();
 
-  getItems() {
-    console.log(this.deliveryClient)
+  getLandingPage(): Observable<LandingPageType | null> {
     return from(
-      this.deliveryClient
-        .getClient()
-        .items()
-        .type("landing_page")
-        .depthParameter(0)
-        .toPromise())
+      this.client
+        .items<LandingPageType>()
+        .type('landing_page')
+        .limitParameter(1)
+        .depthParameter(2)
+        .toPromise()
+    ).pipe(map((res) => res.data.items[0] ?? null));
+  }
 
-      .pipe(
-        map(response => response.data)
-      );
+  getArticles(): Observable<ArticleType[]> {
+    return from(
+      this.client
+        .items<ArticleType>()
+        .type('article')
+        .toPromise()
+    ).pipe(map((res) => res.data.items));
+  }
+
+  getArticle(codename: string): Observable<ArticleType | null> {
+    return from(
+      this.client
+        .item<ArticleType>(codename)
+        .toPromise()
+    ).pipe(map((res) => res.data.item ?? null));
+  }
+
+  getEvents(): Observable<EventType[]> {
+    return from(
+      this.client
+        .items<EventType>()
+        .type('event')
+        .toPromise()
+    ).pipe(map((res) => res.data.items));
   }
 }
