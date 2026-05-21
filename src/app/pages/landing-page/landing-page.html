@@ -1,0 +1,17 @@
+@if (landingPage() === undefined) {
+  <p>Loading...</p>
+} @else if (landingPage() === null) {
+  <p>No data returned from API.</p>
+} @else {
+  <app-page-section color="bg-creme">
+    <app-hero-image
+      [headline]="landingPage()!.elements.headline"
+      [subheadline]="landingPage()!.elements.subheadline"
+      [heroImage]="landingPage()!.elements.hero_image"
+    />
+  </app-page-section>
+
+  @if (landingPage()!.elements.featured_content) {
+    <app-featured-content [featuredContent]="landingPage()!.elements.featured_content" />
+  }
+}
