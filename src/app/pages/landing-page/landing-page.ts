@@ -3,12 +3,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { catchError, of } from 'rxjs';
 import { FeaturedContent } from '../../components/featured-content/featured-content';
 import { HeroImage } from '../../components/hero-image/hero-image';
+import { PageContent } from '../../components/page-content/page-content';
 import { PageSection } from '../../components/page-section/page-section';
 import { Api } from '../../services/api';
 
 @Component({
   selector: 'app-landing-page',
-  imports: [HeroImage, FeaturedContent, PageSection],
+  imports: [HeroImage, FeaturedContent, PageContent, PageSection],
   templateUrl: './landing-page.html',
 })
 export class LandingPage {

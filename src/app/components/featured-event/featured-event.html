@@ -13,8 +13,13 @@
         </div>
       }
     </div>
+    @if (descriptionHtml()) {
+      <div class="mt-4" [innerHTML]="descriptionHtml()"></div>
+    }
   </div>
-  <a href="#" class="text-center xl:text-left text-burgundy text-xl mt-6 font-semibold underline">
-    Read more
-  </a>
+  @if (showReadMore) {
+    <a href="#" class="text-center xl:text-left text-burgundy text-xl mt-6 font-semibold underline">
+      Read more
+    </a>
+  }
 </app-featured-component-base>
