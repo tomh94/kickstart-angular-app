@@ -1,0 +1,25 @@
+<div class="flex flex-col xl:flex-row pt-10 xl:pt-[104px] pb-10 xl:pb-[160px] gap-5">
+  <div class="xl:basis-1/2">
+    @if (headline()) {
+      <h1 class="text-center xl:text-left font-family-libre text-[64px] md:text-[94px] text-burgundy font-bold leading-[64px] md:leading-[78px]">
+        {{ headline()?.value }}
+      </h1>
+    }
+    @if (subheadline()) {
+      <p class="text-center xl:text-left font-family-sans text-xl text-gray">
+        {{ subheadline()?.value }}
+      </p>
+    }
+  </div>
+  <div class="xl:basis-1/2">
+    @if (img()) {
+      <img
+        width="670"
+        height="440"
+        [src]="img()!.url + '?auto=format&w=800'"
+        [alt]="img()!.description ?? 'hero image'"
+        class="object-cover mx-auto"
+      />
+    }
+  </div>
+</div>

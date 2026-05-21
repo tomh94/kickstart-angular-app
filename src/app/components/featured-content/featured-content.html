@@ -1,0 +1,16 @@
+@if (article || event) {
+  <h2 class="text-6xl text-azure text-center">Featured Content</h2>
+}
+@if (article) {
+  <app-page-section color="bg-creme">
+    <app-featured-article [article]="article" />
+  </app-page-section>
+}
+@if (article && event) {
+  <app-divider />
+}
+@if (event) {
+  <app-page-section color="bg-white">
+    <app-featured-event [event]="event" />
+  </app-page-section>
+}
