@@ -1,16 +1,19 @@
-@if (article || event) {
-  <h2 class="text-6xl text-azure text-center">Featured Content</h2>
+@if (articles.length || events.length) {
+  <h2 class="text-6xl text-azure text-center mb-5">Featured Content</h2>
 }
-@if (article) {
+@for (article of articles; track article.system.id; let last = $last) {
   <app-page-section color="bg-creme">
     <app-featured-article [article]="article" />
   </app-page-section>
+  @if (!last || events.length) {
+    <app-divider />
+  }
 }
-@if (article && event) {
-  <app-divider />
-}
-@if (event) {
+@for (event of events; track event.system.id; let last = $last) {
   <app-page-section color="bg-white">
     <app-featured-event [event]="event" />
   </app-page-section>
+  @if (!last) {
+    <app-divider />
+  }
 }

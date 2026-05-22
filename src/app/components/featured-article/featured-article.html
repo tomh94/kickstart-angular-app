@@ -3,9 +3,9 @@
     <h2 class="text-center xl:text-left text-5xl font-semibold text-burgundy">
       {{ article().elements.title.value }}
     </h2>
-    @if (publishDate) {
+    @if (publishDate()) {
       <p class="text-center xl:text-left text-gray-light mt-6 text-lg">
-        Published on {{ publishDate }}
+        Published on {{ publishDate() }}
       </p>
     }
     <p class="text-left text-gray-700 mt-4 text-xl">

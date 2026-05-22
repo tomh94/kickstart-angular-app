@@ -16,11 +16,11 @@ import { PageSection } from '../page-section/page-section';
 export class FeaturedContent {
   readonly featuredContent = input.required<Elements.LinkedItemsElement<EventType | ArticleType>>();
 
-  protected get article(): ArticleType | null {
-    return this.featuredContent().linkedItems.find(isArticleType) ?? null;
+  protected get articles(): ArticleType[] {
+    return this.featuredContent().linkedItems.filter(isArticleType);
   }
 
-  protected get event(): EventType | null {
-    return this.featuredContent().linkedItems.find(isEventType) ?? null;
+  protected get events(): EventType[] {
+    return this.featuredContent().linkedItems.filter(isEventType);
   }
 }

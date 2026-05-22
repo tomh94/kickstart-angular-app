@@ -1,8 +1,21 @@
+import { transformToPortableText } from '@kontent-ai/rich-text-resolver';
 import type {
   PortableTextBlock,
   PortableTextSpan,
   PortableTextMarkDefinition,
 } from '@kontent-ai/rich-text-resolver';
+
+export function isRichTextEmpty(value: string): boolean {
+  return !value || value === '<p><br></p>';
+}
+
+export function richTextToHtml(value: string): string {
+  const blocks = transformToPortableText(value) as unknown as PortableTextBlock[];
+  return blocks
+    .filter((b) => b._type === 'block')
+    .map((b) => blockToHtml(b))
+    .join('');
+}
 
 const styleMap: Record<string, string> = {
   h1: 'class="text-8xl font-family-libre text-azure"',

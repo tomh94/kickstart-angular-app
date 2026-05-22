@@ -4,10 +4,10 @@
       {{ event().elements.name.value }}
     </h2>
     <p class="text-center xl:text-left text-gray-light mt-6 text-lg">
-      {{ dateRange }}
+      {{ dateRange() }}
     </p>
     <div class="flex mt-6 gap-2 justify-center xl:justify-normal flex-wrap">
-      @for (tag of tags; track tag) {
+      @for (tag of tags(); track tag) {
         <div class="px-4 py-2 border-solid border rounded-full border-[#1D1D1B]">
           <p class="text-[#1D1D1B] text-lg">{{ tag }}</p>
         </div>
@@ -17,7 +17,7 @@
       <div class="mt-4" [innerHTML]="descriptionHtml()"></div>
     }
   </div>
-  @if (showReadMore) {
+  @if (showReadMore()) {
     <a href="#" class="text-center xl:text-left text-burgundy text-xl mt-6 font-semibold underline">
       Read more
     </a>

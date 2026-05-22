@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import type { ArticleType } from '../../../model';
+import { formatDate } from '../../utils/date';
 import { FeaturedComponentBase } from '../featured-component-base/featured-component-base';
 
 @Component({
@@ -10,13 +11,7 @@ import { FeaturedComponentBase } from '../featured-component-base/featured-compo
 export class FeaturedArticle {
   readonly article = input.required<ArticleType>();
 
-  protected get publishDate() {
-    const value = this.article().elements.publish_date?.value;
-    if (!value) return null;
-    return new Date(value).toLocaleDateString('en-US', {
-      month: 'short',
-      year: 'numeric',
-      day: 'numeric',
-    });
-  }
+  protected readonly publishDate = computed(() =>
+    formatDate(this.article().elements.publish_date?.value),
+  );
 }
