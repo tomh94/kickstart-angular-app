@@ -1,7 +1,11 @@
 @if (landingPage() === undefined) {
-  <p>Loading...</p>
+  <div class="grow flex items-center justify-center">
+    <app-loader />
+  </div>
+} @else if (hasError()) {
+  <app-error-page />
 } @else if (landingPage() === null) {
-  <p>No data returned from API.</p>
+  <div class="grow"></div>
 } @else {
   <app-page-section color="bg-creme">
     <app-hero-image
