@@ -1,8 +1,7 @@
 import { Component, input } from '@angular/core';
 import type { Elements } from '@kontent-ai/delivery-sdk';
 
-import { isArticleType, type ArticleType } from '../../../model';
-import { isEventType, type EventType } from '../../../model';
+import { isArticleType, type ArticleType, isEventType, type EventType } from '../../../model';
 import { Divider } from '../divider/divider';
 import { FeaturedArticle } from '../featured-article/featured-article';
 import { FeaturedEvent } from '../featured-event/featured-event';

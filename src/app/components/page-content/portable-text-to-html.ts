@@ -1,9 +1,7 @@
-import { transformToPortableText } from '@kontent-ai/rich-text-resolver';
-import type {
-  PortableTextBlock,
-  PortableTextSpan,
-  PortableTextMarkDefinition,
-} from '@kontent-ai/rich-text-resolver';
+import { transformToPortableText,
+  type PortableTextBlock,
+  type PortableTextSpan,
+  type PortableTextMarkDefinition,} from '@kontent-ai/rich-text-resolver';
 
 export function isRichTextEmpty(value: string): boolean {
   return !value || value === '<p><br></p>';
@@ -45,7 +43,7 @@ function resolveSpan(span: PortableTextSpan, marks: PortableTextMarkDefinition[]
 export function blockToHtml(block: PortableTextBlock): string {
   const style = block.style ?? 'normal';
   const attrs = styleMap[style] ?? styleMap['normal'];
-  const marks = (block.markDefs ?? []) as PortableTextMarkDefinition[];
+  const marks = (block.markDefs ?? []);
   const inner = (block.children ?? [])
     .map((child) => resolveSpan(child as PortableTextSpan, marks))
     .join('');

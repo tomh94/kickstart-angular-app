@@ -13,16 +13,16 @@
  */
 
 
-            import type { TypeCodenames } from '../system/types.generated';
+import type { TypeCodenames } from '../system/types.generated';
 import type { Elements, IContentItem } from '@kontent-ai/delivery-sdk';
-import type { ArticleType } from '../types/article.generated';
+import type { ArticleType } from './article.generated';
 import type { CollectionCodenames } from '../system/collections.generated';
 import type { CoreType } from '../system/types.generated';
-import type { EventType } from '../types/event.generated';
+import type { EventType } from './event.generated';
 import type { LanguageCodenames } from '../system/languages.generated';
-import type { VideoType } from '../types/video.generated';
+import type { VideoType } from './video.generated';
 import type { WorkflowCodenames, WorkflowStepCodenames } from '../system/workflows.generated';
-           
+
             /*
 * Type representing codename of 'Landing Page' type
 */
@@ -99,7 +99,7 @@ export type LandingPageType = IContentItem<
 * Required: false
 * Allowed content types: event, article
     */
-                readonly featured_content: Elements.LinkedItemsElement<EventType | ArticleType>;}, 
+                readonly featured_content: Elements.LinkedItemsElement<EventType | ArticleType>;},
 LandingPageTypeCodename, LanguageCodenames, CollectionCodenames, WorkflowCodenames, WorkflowStepCodenames>
 
 /*
@@ -120,4 +120,3 @@ export function isLandingPageType(item: IContentItem | undefined | null): item i
 
 
 
-            

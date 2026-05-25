@@ -2,13 +2,9 @@ import { Component, computed, inject, input } from '@angular/core';
 import { DomSanitizer, type SafeHtml } from '@angular/platform-browser';
 import {
   transformToPortableText,
-  type PortableTextBlock,
-  type PortableTextComponentOrItem,
-  type PortableTextObject,
+  type PortableTextBlock
 } from '@kontent-ai/rich-text-resolver';
-import type { LandingPageType } from '../../../model/types/landing-page.generated';
-import type { VideoType } from '../../../model/types/video.generated';
-import { isVideoType } from '../../../model/types/video.generated';
+import {type VideoType, type LandingPageType, isVideoType } from '../../../model';
 import { blockToHtml, listToHtml } from './portable-text-to-html';
 import { Video } from '../video/video';
 
@@ -27,7 +23,7 @@ export class PageContent {
   private readonly sanitizer = inject(DomSanitizer);
 
   protected readonly items = computed<RenderItem[]>(() => {
-    const blocks = transformToPortableText(this.body().value) as PortableTextObject[];
+    const blocks = transformToPortableText(this.body().value);
     const result: RenderItem[] = [];
     let i = 0;
 
@@ -55,14 +51,14 @@ export class PageContent {
       if (block._type === 'block') {
         result.push({
           kind: 'html',
-          html: this.sanitizer.bypassSecurityTrustHtml(blockToHtml(block as PortableTextBlock)),
+          html: this.sanitizer.bypassSecurityTrustHtml(blockToHtml(block)),
         });
         i++;
         continue;
       }
 
       if (block._type === 'componentOrItem') {
-        const ref = (block as PortableTextComponentOrItem).componentOrItem._ref;
+        const ref = (block).componentOrItem._ref;
         const linked = this.body().linkedItems.find((item) => item.system.codename === ref);
         if (linked && isVideoType(linked)) {
           result.push({ kind: 'video', video: linked });
