@@ -45,4 +45,4 @@ Thumbs.db
 /.vscode/
 /.vscode/
 /.env
-/src/environments/environment.ts
+/environments/

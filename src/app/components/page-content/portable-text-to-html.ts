@@ -50,7 +50,7 @@ export function blockToHtml(block: PortableTextBlock): string {
   const marks = block.markDefs ?? [];
   const inner = (block.children ?? [])
     .map((child) => resolveSpan(child as PortableTextSpan, marks))
-    .join("")
+    .join("");
 
   if (style === "normal") {
     return `<p ${attrs}>${inner}</p>`;
