@@ -10,6 +10,7 @@
     "model:generate": "npx tsx ./scripts/generateModel.ts",
     "model:import": "npx tsx ./scripts/importProject.ts",
     "env:sync": "npx tsx ./scripts/syncEnv.ts",
+    "postinstall": "npm run env:sync",
     "setup": "npm run env:sync && npm run model:import --filename='scripts/backups/kickstart-completed.zip'",
     "lint": "eslint \"src/**/*.ts\"",
     "biome:fix": "biome check --fix .",
