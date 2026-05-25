@@ -1,5 +1,5 @@
-import { writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -16,5 +16,6 @@ export const environment = {
 `;
 
 const outputPath = resolve("src/environments/environment.ts");
+mkdirSync(dirname(outputPath), { recursive: true });
 writeFileSync(outputPath, content, "utf-8");
 console.log(`✓ src/environments/environment.ts updated from .env`);
