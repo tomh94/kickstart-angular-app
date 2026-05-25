@@ -1,9 +1,9 @@
-import { inject, Injectable } from '@angular/core';
-import { from, map, type Observable } from 'rxjs';
-import type { LandingPageType } from '../../model';
-import { deliveryClient } from './delivery-client';
+import { Injectable, inject } from "@angular/core";
+import { from, map, type Observable } from "rxjs";
+import type { LandingPageType } from "../../model/index";
+import { deliveryClient } from "./delivery-client";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class Api {
   private readonly client = inject(deliveryClient).getClient();
 
@@ -11,13 +11,10 @@ export class Api {
     return from(
       this.client
         .items<LandingPageType>()
-        .type('landing_page')
+        .type("landing_page")
         .limitParameter(1)
         .depthParameter(2)
-        .toPromise()
+        .toPromise(),
     ).pipe(map((res) => res.data.items[0] ?? null));
   }
-
-
-
 }

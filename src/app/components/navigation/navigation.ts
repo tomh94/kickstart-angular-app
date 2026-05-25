@@ -1,12 +1,17 @@
-import {Component, signal} from '@angular/core';
+import { Component, signal } from "@angular/core";
 
 @Component({
-  selector: 'app-navigation',
+  selector: "app-navigation",
   imports: [],
-  templateUrl: './navigation.html',
-  styleUrl: './navigation.css',
+  templateUrl: "./navigation.html",
+  styleUrl: "./navigation.css",
 })
 export class Navigation {
-
- protected readonly menuItems  =  signal<readonly string[]>(["Solutions", "Products", "Pricing", "Contact", "Our Company"]);
+  protected readonly menuItems = signal<readonly string[]>([
+    "Solutions",
+    "Products",
+    "Pricing",
+    "Contact",
+    "Our Company",
+  ]);
 }

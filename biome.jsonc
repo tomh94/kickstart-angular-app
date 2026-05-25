@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["@kontent-ai/biome-config/base"],
+  "files": {
+    "includes": ["!**/*.css"]
+  },
+  "html": {
+    "parser": {
+      "interpolation": true
+    }
+  },
+  "linter": {
+    "rules": {
+      "correctness": {
+        "useImportExtensions": "off"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["src/model/**"],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noBarrelFile": "off"
+          }
+        }
+      }
+    }
+  ]
+}

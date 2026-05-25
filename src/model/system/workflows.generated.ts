@@ -42,6 +42,8 @@ export type WorkflowStepCodenames = (typeof workflowStepCodenames)[number];
 /*
  * Typeguard for workflow codename
  */
-export function isWorkflowStepCodename(value: string | undefined | null): value is WorkflowStepCodenames {
+export function isWorkflowStepCodename(
+  value: string | undefined | null,
+): value is WorkflowStepCodenames {
   return typeof value === "string" && (workflowStepCodenames as readonly string[]).includes(value);
 }

@@ -10,7 +10,10 @@
     "model:generate": "npx tsx ./scripts/generateModel.ts",
     "model:import": "npx tsx ./scripts/importProject.ts",
     "env:sync": "npx tsx ./scripts/syncEnv.ts",
-    "lint": "eslint \"src/**/*.ts\""
+    "lint": "eslint \"src/**/*.ts\"",
+    "biome:fix": "biome check --fix .",
+    "biome:check": "biome check .",
+    "biome:ci": "biome ci ."
   },
   "private": true,
   "type": "module",
@@ -22,6 +25,7 @@
     "@angular/forms": "^21.2.13",
     "@angular/platform-browser": "^21.2.13",
     "@angular/router": "^21.2.13",
+    "@biomejs/biome": "^2.4.15",
     "@kontent-ai/data-ops": "^2.6.2",
     "@kontent-ai/delivery-sdk": "^16.4.3",
     "@kontent-ai/rich-text-resolver": "^3.0.3",
@@ -37,6 +41,7 @@
     "@angular/build": "^21.2.11",
     "@angular/cli": "^21.2.11",
     "@angular/compiler-cli": "^21.2.13",
+    "@kontent-ai/biome-config": "^0.7.0",
     "@kontent-ai/core-sdk": "^10.12.5",
     "@kontent-ai/eslint-config": "^2.4.1",
     "@kontent-ai/model-generator": "^10.0.1",

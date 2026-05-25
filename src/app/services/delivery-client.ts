@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import {createDeliveryClient, IDeliveryClient} from '@kontent-ai/delivery-sdk';
-import { CoreClientTypes} from '../../model';
-import { environment} from '../../environments/environment';
+import { Injectable } from "@angular/core";
+import { createDeliveryClient, type IDeliveryClient } from "@kontent-ai/delivery-sdk";
+import { environment } from "../../environments/environment";
+import type { CoreClientTypes } from "../../model";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class deliveryClient {
   private readonly client = createDeliveryClient<CoreClientTypes>({

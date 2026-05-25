@@ -17,7 +17,10 @@ import type { LanguageCodenames } from "../system/languages.generated";
 /*
  * Type representing codename of 'Default project language' language
  */
-export type DefaultProjectLanguageLanguageCodename = keyof Pick<Record<LanguageCodenames, null>, "default">;
+export type DefaultProjectLanguageLanguageCodename = keyof Pick<
+  Record<LanguageCodenames, null>,
+  "default"
+>;
 
 /*
  * Typeguard for codename of 'Default project language' language
@@ -25,5 +28,8 @@ export type DefaultProjectLanguageLanguageCodename = keyof Pick<Record<LanguageC
 export function isDefaultProjectLanguageLanguageCodename(
   value: string | undefined | null,
 ): value is DefaultProjectLanguageLanguageCodename {
-  return typeof value === "string" && value === ("default" satisfies DefaultProjectLanguageLanguageCodename);
+  return (
+    typeof value === "string" &&
+    value === ("default" satisfies DefaultProjectLanguageLanguageCodename)
+  );
 }

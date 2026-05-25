@@ -17,8 +17,14 @@ import type { CollectionCodenames } from "../system/collections.generated";
 import type { LanguageCodenames } from "../system/languages.generated";
 import type { CoreType, TypeCodenames } from "../system/types.generated";
 import type { WorkflowCodenames, WorkflowStepCodenames } from "../system/workflows.generated";
-import type { EventTopicTaxonomyCodename, EventTopicTaxonomyTermCodenames } from "../taxonomies/event-topic.generated";
-import type { EventTypeTaxonomyCodename, EventTypeTaxonomyTermCodenames } from "../taxonomies/event-type.generated";
+import type {
+  EventTopicTaxonomyCodename,
+  EventTopicTaxonomyTermCodenames,
+} from "../taxonomies/event-topic.generated";
+import type {
+  EventTypeTaxonomyCodename,
+  EventTypeTaxonomyTermCodenames,
+} from "../taxonomies/event-type.generated";
 
 /*
  * Type representing codename of 'Event' type
@@ -95,7 +101,10 @@ export type EventType = IContentItem<
      * Required: true
      * Taxonomy: event_type
      */
-    readonly event_type: Elements.TaxonomyElement<EventTypeTaxonomyTermCodenames, EventTypeTaxonomyCodename>;
+    readonly event_type: Elements.TaxonomyElement<
+      EventTypeTaxonomyTermCodenames,
+      EventTypeTaxonomyCodename
+    >;
 
     /*
      * Event Topic
@@ -107,7 +116,10 @@ export type EventType = IContentItem<
      * Required: true
      * Taxonomy: event_topic
      */
-    readonly event_topic: Elements.TaxonomyElement<EventTopicTaxonomyTermCodenames, EventTopicTaxonomyCodename>;
+    readonly event_topic: Elements.TaxonomyElement<
+      EventTopicTaxonomyTermCodenames,
+      EventTopicTaxonomyCodename
+    >;
 
     /*
      * Description

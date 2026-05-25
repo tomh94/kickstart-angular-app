@@ -12,111 +12,119 @@
  * -------------------------------------------------------------------------------
  */
 
-
-import type { TypeCodenames } from '../system/types.generated';
-import type { Elements, IContentItem } from '@kontent-ai/delivery-sdk';
-import type { ArticleType } from './article.generated';
-import type { CollectionCodenames } from '../system/collections.generated';
-import type { CoreType } from '../system/types.generated';
-import type { EventType } from './event.generated';
-import type { LanguageCodenames } from '../system/languages.generated';
-import type { VideoType } from './video.generated';
-import type { WorkflowCodenames, WorkflowStepCodenames } from '../system/workflows.generated';
-
-            /*
-* Type representing codename of 'Landing Page' type
-*/
-            export type LandingPageTypeCodename = keyof Pick<Record<TypeCodenames, null>, "landing_page">;
-
-            /*
-* Typeguard for codename of 'Landing Page' type
-*/
-            export function isLandingPageTypeCodename(value: string | undefined | null): value is LandingPageTypeCodename {
-                return typeof value === 'string' && value === ('landing_page' satisfies LandingPageTypeCodename);
-            }
+import type { Elements, IContentItem } from "@kontent-ai/delivery-sdk";
+import type { CollectionCodenames } from "../system/collections.generated";
+import type { LanguageCodenames } from "../system/languages.generated";
+import type { TypeCodenames } from "../system/types.generated";
+import type { WorkflowCodenames, WorkflowStepCodenames } from "../system/workflows.generated";
+import type { ArticleType } from "./article.generated";
+import type { EventType } from "./event.generated";
+import type { VideoType } from "./video.generated";
 
 /*
-    * Landing Page
-    *
-    * Id: aa610b72-ca00-5ee3-bd30-f5b001b9d64e
-* Codename: landing_page
-* External Id: landing_page
-    */
+ * Type representing codename of 'Landing Page' type
+ */
+export type LandingPageTypeCodename = keyof Pick<Record<TypeCodenames, null>, "landing_page">;
+
+/*
+ * Typeguard for codename of 'Landing Page' type
+ */
+export function isLandingPageTypeCodename(
+  value: string | undefined | null,
+): value is LandingPageTypeCodename {
+  return typeof value === "string" && value === ("landing_page" satisfies LandingPageTypeCodename);
+}
+
+/*
+ * Landing Page
+ *
+ * Id: aa610b72-ca00-5ee3-bd30-f5b001b9d64e
+ * Codename: landing_page
+ * External Id: landing_page
+ */
 export type LandingPageType = IContentItem<
-{
-/*
-    * Headline
-    *
-    * Codename: headline
-* Id: ff2c9d21-64f1-5d64-b650-344dd0ba44d2
-* External Id: landing_page_default_headline_element
-* Type: text
-* Required: true
-    */
-                readonly headline: Elements.TextElement;
+  {
+    /*
+     * Headline
+     *
+     * Codename: headline
+     * Id: ff2c9d21-64f1-5d64-b650-344dd0ba44d2
+     * External Id: landing_page_default_headline_element
+     * Type: text
+     * Required: true
+     */
+    readonly headline: Elements.TextElement;
+
+    /*
+     * Subheadline
+     *
+     * Codename: subheadline
+     * Id: 96fa63e6-2f46-557d-9dc8-4874ae9340a6
+     * External Id: landing_page_default_subheadline_element
+     * Type: text
+     * Required: true
+     */
+    readonly subheadline: Elements.TextElement;
+
+    /*
+     * Hero Image
+     *
+     * Codename: hero_image
+     * Id: efe09118-3de6-5581-b784-43408e2e673b
+     * External Id: landing_page_default_hero_image_element
+     * Type: asset
+     * Required: true
+     */
+    readonly hero_image: Elements.AssetsElement;
+
+    /*
+     * Body Copy
+     *
+     * Codename: body_copy
+     * Id: b0e94942-8d23-5f67-aa72-15c0ed45a390
+     * External Id: landing_page_default_body_copy_element
+     * Type: rich_text
+     * Required: false
+     * Allowed content types: video
+     */
+    readonly body_copy: Elements.RichTextElement<VideoType>;
+
+    /*
+     * Featured Content
+     *
+     * Codename: featured_content
+     * Id: 7f939caa-a3a2-5018-a127-fe2938129fa9
+     * External Id: landing_page_default_featured_content_element
+     * Type: modular_content
+     * Required: false
+     * Allowed content types: event, article
+     */
+    readonly featured_content: Elements.LinkedItemsElement<EventType | ArticleType>;
+  },
+  LandingPageTypeCodename,
+  LanguageCodenames,
+  CollectionCodenames,
+  WorkflowCodenames,
+  WorkflowStepCodenames
+>;
 
 /*
-    * Subheadline
-    *
-    * Codename: subheadline
-* Id: 96fa63e6-2f46-557d-9dc8-4874ae9340a6
-* External Id: landing_page_default_subheadline_element
-* Type: text
-* Required: true
-    */
-                readonly subheadline: Elements.TextElement;
+ * Type representing all available element codenames for Landing Page
+ */
+export type LandingPageTypeElementCodenames =
+  | "headline"
+  | "subheadline"
+  | "hero_image"
+  | "body_copy"
+  | "featured_content";
 
 /*
-    * Hero Image
-    *
-    * Codename: hero_image
-* Id: efe09118-3de6-5581-b784-43408e2e673b
-* External Id: landing_page_default_hero_image_element
-* Type: asset
-* Required: true
-    */
-                readonly hero_image: Elements.AssetsElement;
-
-/*
-    * Body Copy
-    *
-    * Codename: body_copy
-* Id: b0e94942-8d23-5f67-aa72-15c0ed45a390
-* External Id: landing_page_default_body_copy_element
-* Type: rich_text
-* Required: false
-* Allowed content types: video
-    */
-                readonly body_copy: Elements.RichTextElement<VideoType>;
-
-/*
-    * Featured Content
-    *
-    * Codename: featured_content
-* Id: 7f939caa-a3a2-5018-a127-fe2938129fa9
-* External Id: landing_page_default_featured_content_element
-* Type: modular_content
-* Required: false
-* Allowed content types: event, article
-    */
-                readonly featured_content: Elements.LinkedItemsElement<EventType | ArticleType>;},
-LandingPageTypeCodename, LanguageCodenames, CollectionCodenames, WorkflowCodenames, WorkflowStepCodenames>
-
-/*
-* Type representing all available element codenames for Landing Page
-*/
-export type LandingPageTypeElementCodenames = 'headline' | 'subheadline' | 'hero_image' | 'body_copy' | 'featured_content';;
-
-/*
-    * Type guard for Landing Page
-    *
-    * Id: aa610b72-ca00-5ee3-bd30-f5b001b9d64e
-* Codename: landing_page
-* External Id: landing_page
-    */
+ * Type guard for Landing Page
+ *
+ * Id: aa610b72-ca00-5ee3-bd30-f5b001b9d64e
+ * Codename: landing_page
+ * External Id: landing_page
+ */
 export function isLandingPageType(item: IContentItem | undefined | null): item is LandingPageType {
-                return item?.system.type === ('landing_page' satisfies LandingPageTypeCodename);
-            };
-
-
-
+  return item?.system.type === ("landing_page" satisfies LandingPageTypeCodename);
+}

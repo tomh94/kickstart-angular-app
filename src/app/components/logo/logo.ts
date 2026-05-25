@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-logo',
+  selector: "app-logo",
   imports: [],
-  templateUrl: './logo.html',
-  styleUrl: './logo.css',
+  templateUrl: "./logo.html",
+  styleUrl: "./logo.css",
 })
 export class Logo {}

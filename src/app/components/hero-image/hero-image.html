@@ -17,7 +17,8 @@
         width="670"
         height="440"
         [src]="img()!.url + '?auto=format&w=800'"
-        [alt]="img()!.description ?? 'hero image'"
+        alt="hero"
+        [attr.alt]="img()!.description ?? 'hero'"
         class="object-cover mx-auto"
       />
     }

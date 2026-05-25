@@ -22,7 +22,9 @@ export type EventTypeTaxonomyCodename = keyof Pick<Record<TaxonomyCodenames, nul
 /*
  * Typeguard for codename of 'Event Type' taxonomy
  */
-export function isEventTypeTaxonomyCodename(value: string | undefined | null): value is EventTypeTaxonomyCodename {
+export function isEventTypeTaxonomyCodename(
+  value: string | undefined | null,
+): value is EventTypeTaxonomyCodename {
   return typeof value === "string" && value === ("event_type" satisfies EventTypeTaxonomyCodename);
 }
 
@@ -42,5 +44,8 @@ export type EventTypeTaxonomyTermCodenames = (typeof eventTypeTaxonomyTermCodena
 export function isEventTypeTaxonomyTermCodename(
   value: string | undefined | null,
 ): value is EventTypeTaxonomyTermCodenames {
-  return typeof value === "string" && (eventTypeTaxonomyTermCodenames as readonly string[]).includes(value);
+  return (
+    typeof value === "string" &&
+    (eventTypeTaxonomyTermCodenames as readonly string[]).includes(value)
+  );
 }

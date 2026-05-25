@@ -22,6 +22,8 @@ export type DefaultCollectionCodename = keyof Pick<Record<CollectionCodenames, n
 /*
  * Typeguard for codename of 'Default' collection
  */
-export function isDefaultCollectionCodename(value: string | undefined | null): value is DefaultCollectionCodename {
+export function isDefaultCollectionCodename(
+  value: string | undefined | null,
+): value is DefaultCollectionCodename {
   return typeof value === "string" && value === ("default" satisfies DefaultCollectionCodename);
 }

@@ -26,7 +26,9 @@ export type ArticleTypeCodename = keyof Pick<Record<TypeCodenames, null>, "artic
 /*
  * Typeguard for codename of 'Article' type
  */
-export function isArticleTypeCodename(value: string | undefined | null): value is ArticleTypeCodename {
+export function isArticleTypeCodename(
+  value: string | undefined | null,
+): value is ArticleTypeCodename {
   return typeof value === "string" && value === ("article" satisfies ArticleTypeCodename);
 }
 
@@ -104,7 +106,12 @@ export type ArticleType = IContentItem<
 /*
  * Type representing all available element codenames for Article
  */
-export type ArticleTypeElementCodenames = "title" | "introduction" | "image" | "body_copy" | "publish_date";
+export type ArticleTypeElementCodenames =
+  | "title"
+  | "introduction"
+  | "image"
+  | "body_copy"
+  | "publish_date";
 
 /*
  * Type guard for Article

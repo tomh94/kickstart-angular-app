@@ -52,6 +52,5 @@ export type CodenameTypeMapping = {
 /*
  * Helper type that returns type based on the codename of type.
  */
-export type CodenameTypeMapper<TTypeCodename extends TypeCodenames> = TTypeCodename extends keyof CodenameTypeMapping
-  ? CodenameTypeMapping[TTypeCodename]
-  : CoreType;
+export type CodenameTypeMapper<TTypeCodename extends TypeCodenames> =
+  TTypeCodename extends keyof CodenameTypeMapping ? CodenameTypeMapping[TTypeCodename] : CoreType;

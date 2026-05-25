@@ -1,14 +1,14 @@
-import { Component, computed, inject, input } from '@angular/core';
-import { DomSanitizer, type SafeHtml } from '@angular/platform-browser';
-import type { EventType } from '../../../model';
-import { formatDate } from '../../utils/date';
-import { isRichTextEmpty, richTextToHtml } from '../page-content/portable-text-to-html';
-import { FeaturedComponentBase } from '../featured-component-base/featured-component-base';
+import { Component, computed, inject, input } from "@angular/core";
+import { DomSanitizer, type SafeHtml } from "@angular/platform-browser";
+import type { EventType } from "../../../model/index";
+import { formatDate } from "../../utils/date";
+import { FeaturedComponentBase } from "../featured-component-base/featured-component-base";
+import { isRichTextEmpty, richTextToHtml } from "../page-content/portable-text-to-html";
 
 @Component({
-  selector: 'app-featured-event',
+  selector: "app-featured-event",
   imports: [FeaturedComponentBase],
-  templateUrl: './featured-event.html',
+  templateUrl: "./featured-event.html",
 })
 export class FeaturedEvent {
   readonly event = input.required<EventType>();
@@ -28,12 +28,14 @@ export class FeaturedEvent {
   });
 
   protected readonly descriptionHtml = computed<SafeHtml | null>(() => {
-    const raw = this.event().elements.description?.value ?? '';
-    if (isRichTextEmpty(raw)) return null;
+    const raw = this.event().elements.description?.value ?? "";
+    if (isRichTextEmpty(raw)) {
+      return null;
+    }
     return this.sanitizer.bypassSecurityTrustHtml(richTextToHtml(raw));
   });
 
-  protected readonly showReadMore = computed(() =>
-    !isRichTextEmpty(this.event().elements.description?.value ?? ''),
+  protected readonly showReadMore = computed(
+    () => !isRichTextEmpty(this.event().elements.description?.value ?? ""),
   );
 }

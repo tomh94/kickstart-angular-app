@@ -22,14 +22,22 @@ export type EventTopicTaxonomyCodename = keyof Pick<Record<TaxonomyCodenames, nu
 /*
  * Typeguard for codename of 'Event Topic' taxonomy
  */
-export function isEventTopicTaxonomyCodename(value: string | undefined | null): value is EventTopicTaxonomyCodename {
-  return typeof value === "string" && value === ("event_topic" satisfies EventTopicTaxonomyCodename);
+export function isEventTopicTaxonomyCodename(
+  value: string | undefined | null,
+): value is EventTopicTaxonomyCodename {
+  return (
+    typeof value === "string" && value === ("event_topic" satisfies EventTopicTaxonomyCodename)
+  );
 }
 
 /*
  * Array of all taxonomy term codenames
  */
-export const eventTopicTaxonomyTermCodenames = ["nutrition", "physical_fitness", "preventative_care"] as const;
+export const eventTopicTaxonomyTermCodenames = [
+  "nutrition",
+  "physical_fitness",
+  "preventative_care",
+] as const;
 
 /*
  * Type representing all taxonomy term codenames
@@ -42,5 +50,8 @@ export type EventTopicTaxonomyTermCodenames = (typeof eventTopicTaxonomyTermCode
 export function isEventTopicTaxonomyTermCodename(
   value: string | undefined | null,
 ): value is EventTopicTaxonomyTermCodenames {
-  return typeof value === "string" && (eventTopicTaxonomyTermCodenames as readonly string[]).includes(value);
+  return (
+    typeof value === "string" &&
+    (eventTopicTaxonomyTermCodenames as readonly string[]).includes(value)
+  );
 }

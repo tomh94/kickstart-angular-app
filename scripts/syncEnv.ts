@@ -1,11 +1,12 @@
+import { writeFileSync } from "node:fs";
+import { resolve } from "node:path";
 import * as dotenv from "dotenv";
-import { writeFileSync } from "fs";
-import { resolve } from "path";
 
 dotenv.config();
 
 const environmentId = process.env.NG_APP_ENVIRONMENT_ID ?? process.env.VITE_ENVIRONMENT_ID ?? "";
-const deliveryApiKey = process.env.NG_APP_DELIVERY_API_KEY ?? process.env.VITE_DELIVERY_API_KEY ?? "";
+const deliveryApiKey =
+  process.env.NG_APP_DELIVERY_API_KEY ?? process.env.VITE_DELIVERY_API_KEY ?? "";
 const managementApiKey = process.env.VITE_MANAGEMENT_API_KEY ?? "";
 
 if (!environmentId || !deliveryApiKey) {

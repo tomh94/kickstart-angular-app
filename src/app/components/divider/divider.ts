@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-divider',
+  selector: "app-divider",
   imports: [],
-  templateUrl: './divider.html',
-  styleUrl: './divider.css',
+  templateUrl: "./divider.html",
+  styleUrl: "./divider.css",
 })
 export class Divider {}

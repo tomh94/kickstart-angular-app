@@ -1,15 +1,12 @@
 import kontentAiConfig from "@kontent-ai/eslint-config";
 import angular from "angular-eslint";
-import {defineConfig, globalIgnores} from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
   globalIgnores(["**/*.spec.ts", "**/*.generated.ts"]),
   {
     files: ["src/**/*.ts"],
-    extends: [
-      kontentAiConfig,
-      ...angular.configs.tsRecommended,
-    ],
+    extends: [kontentAiConfig, ...angular.configs.tsRecommended],
     processor: angular.processInlineTemplates,
     languageOptions: {
       parserOptions: {
@@ -23,10 +20,7 @@ export default defineConfig([
   },
   {
     files: ["src/**/*.html"],
-    extends: [
-      ...angular.configs.templateRecommended,
-      ...angular.configs.templateAccessibility,
-    ],
+    extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
     rules: {},
   },
 ]);

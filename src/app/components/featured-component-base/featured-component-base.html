@@ -9,7 +9,8 @@
         width="640"
         height="420"
         [src]="img()!.url + '?auto=format&w=800'"
-        [alt]="img()!.description ?? 'image alt'"
+        alt="content"
+        [attr.alt]="img()!.description ?? 'content'"
         class="object-cover rounded-lg"
       />
     }

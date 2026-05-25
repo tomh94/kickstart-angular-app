@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { type ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { Navigation } from './navigation';
+import { Navigation } from "./navigation";
 
-describe('Navigation', () => {
+describe("Navigation", () => {
   let component: Navigation;
   let fixture: ComponentFixture<Navigation>;
 
@@ -16,7 +16,7 @@ describe('Navigation', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

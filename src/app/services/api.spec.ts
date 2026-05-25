@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { Api } from './api';
+import { Api } from "./api";
 
-describe('Api', () => {
+describe("Api", () => {
   let service: Api;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('Api', () => {
     service = TestBed.inject(Api);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });

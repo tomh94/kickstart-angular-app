@@ -1,10 +1,10 @@
-import { Component, input } from '@angular/core';
-import { Container } from '../container/container';
+import { Component, input } from "@angular/core";
+import { Container } from "../container/container";
 
 @Component({
-  selector: 'app-page-section',
+  selector: "app-page-section",
   imports: [Container],
-  templateUrl: './page-section.html',
+  templateUrl: "./page-section.html",
 })
 export class PageSection {
   readonly color = input.required<string>();

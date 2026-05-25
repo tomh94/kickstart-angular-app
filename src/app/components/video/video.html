@@ -9,11 +9,12 @@
       {{ video().elements.description.value }}
     </p>
   }
-  @if (video().elements.video_link?.value) {
+  @if (video().elements.video_link.value) {
     <figure class="pt-20">
       <iframe
-        class="m-auto w-full lg:w-[900px]"
-        [title]="video().elements.headline?.value ?? 'Video Title'"
+        class="m-auto w-full lg:w-225"
+        title="Video"
+        [attr.title]="video().elements.headline.value"
         width="900"
         height="590"
         [src]="src()"
